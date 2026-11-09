@@ -1,0 +1,53 @@
+{
+  "headers": [
+    "Product Code",
+    "Product Name",
+    "Color / Variant",
+    "Price (Ks)",
+    "Stock"
+  ],
+  "rows": [
+    [
+      "NH865",
+      "MC 175L(M) ချိုင်းထောက်",
+      "Standard",
+      57500,
+      2
+    ],
+    [
+      "NH863",
+      "MC 175 (S) ချိုင်းထောက်",
+      "Standard",
+      57500,
+      2
+    ],
+    [
+      "NH4978",
+      "Blood Glucose Monitoring System",
+      "Standard",
+      38000,
+      1
+    ],
+    [
+      "NH871",
+      "MC 551 ဘိုထိုင်",
+      "Standard",
+      257500,
+      1
+    ],
+    [
+      "NH861",
+      "ဘိုထိုင်အိုး",
+      "Standard",
+      25000,
+      1
+    ],
+    [
+      "NH3841",
+      "MC 120L Walker",
+      "Standard",
+      257500,
+      1
+    ]
+  ]
+}

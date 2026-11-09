@@ -1,0 +1,18 @@
+{
+  "headers": [
+    "Product Code",
+    "Product Name",
+    "Color / Variant",
+    "Price (Ks)",
+    "Stock"
+  ],
+  "rows": [
+    [
+      "NH3614",
+      "MC 125 တုတ်ကောက်",
+      "Standard",
+      71500,
+      3
+    ]
+  ]
+}

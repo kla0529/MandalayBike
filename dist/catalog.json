@@ -1,0 +1,531 @@
+{
+  "schemaVersion": 1,
+  "currency": "MMK",
+  "products": [
+    {
+      "id": "MB-001",
+      "name": {
+        "en": "Mountain Bike X1",
+        "zh": "山地自行车 X1",
+        "mm": "တောင်တက်စက်ဘီး X1"
+      },
+      "description": {
+        "en": "Durable mountain bike for rough roads.",
+        "zh": "适合崎岖道路的耐用山地自行车。",
+        "mm": "ကြမ်းတမ်းသောလမ်းများအတွက် တောင်တက်စက်ဘီး။"
+      },
+      "variants": [
+        {
+          "id": "red",
+          "color": "Red",
+          "image": "assets/products/MB-001.jpg?v=6336fce16464"
+        },
+        {
+          "id": "blue",
+          "color": "Blue",
+          "image": "assets/products/MB-001.jpg?v=6336fce16464"
+        }
+      ]
+    },
+    {
+      "id": "MB-002",
+      "name": {
+        "en": "Office Chair",
+        "zh": "办公椅",
+        "mm": "ရုံးထိုင်ခုံ"
+      },
+      "description": {
+        "en": "Comfortable office chair.",
+        "zh": "舒适的办公椅。",
+        "mm": "သက်တောင့်သက်သာရှိသော ရုံးထိုင်ခုံ။"
+      },
+      "variants": [
+        {
+          "id": "black",
+          "color": "Black",
+          "image": "assets/products/MB-002.jpg?v=cc676d997eb3"
+        }
+      ]
+    },
+    {
+      "id": "MB-003",
+      "name": {
+        "en": "Gaming Laptop",
+        "zh": "游戏笔记本电脑",
+        "mm": "ဂိမ်းလက်ပ်တော့"
+      },
+      "description": {
+        "en": "Powerful gaming laptop.",
+        "zh": "高性能游戏笔记本电脑。",
+        "mm": "စွမ်းဆောင်ရည်မြင့် ဂိမ်းလက်ပ်တော့။"
+      },
+      "variants": [
+        {
+          "id": "silver",
+          "color": "Silver",
+          "image": "assets/products/MB-003.jpg?v=60f865ecb97f"
+        }
+      ]
+    },
+    {
+      "id": "MB-004",
+      "name": {
+        "en": "Air Fryer",
+        "zh": "空气炸锅",
+        "mm": "အဆီမလို ကြော်စက်"
+      },
+      "description": {
+        "en": "Healthy oil-free cooking.",
+        "zh": "健康无油烹饪。",
+        "mm": "ဆီမလိုဘဲ ကျန်းမာစွာချက်ပြုတ်နိုင်သည်။"
+      },
+      "variants": [
+        {
+          "id": "white",
+          "color": "White",
+          "image": "assets/products/MB-004.svg?v=db725fd232e3"
+        }
+      ]
+    },
+    {
+      "id": "MB-005",
+      "name": {
+        "en": "Football",
+        "zh": "足球",
+        "mm": "ဘောလုံး"
+      },
+      "description": {
+        "en": "Professional football.",
+        "zh": "专业足球。",
+        "mm": "ပရော်ဖက်ရှင်နယ် ဘောလုံး။"
+      },
+      "variants": [
+        {
+          "id": "white",
+          "color": "White",
+          "image": "assets/products/MB-005.jpg?v=575df5a628cf"
+        }
+      ]
+    },
+    {
+      "id": "MB-006",
+      "name": {
+        "en": "Camping Tent",
+        "zh": "露营帐篷",
+        "mm": "စခန်းချတဲ"
+      },
+      "description": {
+        "en": "Waterproof outdoor tent.",
+        "zh": "防水户外帐篷。",
+        "mm": "ရေစိုခံ စခန်းချတဲ။"
+      },
+      "variants": [
+        {
+          "id": "green",
+          "color": "Green",
+          "image": "assets/products/MB-006.svg?v=55759a02fdbc"
+        }
+      ]
+    },
+    {
+      "id": "MB-007",
+      "name": {
+        "en": "Office Desk",
+        "zh": "办公桌",
+        "mm": "ရုံးစားပွဲ"
+      },
+      "description": {
+        "en": "Modern office desk.",
+        "zh": "现代办公桌。",
+        "mm": "ခေတ်မီ ရုံးစားပွဲ။"
+      },
+      "variants": [
+        {
+          "id": "brown",
+          "color": "Brown",
+          "image": "assets/products/MB-007.jpg?v=27e80bf12103"
+        }
+      ]
+    },
+    {
+      "id": "MB-008",
+      "name": {
+        "en": "Plastic Chair",
+        "zh": "塑料椅子",
+        "mm": "ပလတ်စတစ်ထိုင်ခုံ"
+      },
+      "description": {
+        "en": "Lightweight plastic chair.",
+        "zh": "轻便塑料椅子。",
+        "mm": "ပေါ့ပါးသော ပလတ်စတစ်ထိုင်ခုံ။"
+      },
+      "variants": [
+        {
+          "id": "blue",
+          "color": "Blue",
+          "image": "assets/products/MB-008.jpg?v=ba06797d60d4"
+        }
+      ]
+    },
+    {
+      "id": "MB-009",
+      "name": {
+        "en": "Wireless Headphones",
+        "zh": "无线耳机",
+        "mm": "ကြိုးမဲ့နားကြပ်"
+      },
+      "description": {
+        "en": "Noise cancelling headphones.",
+        "zh": "降噪耳机。",
+        "mm": "အသံလျော့ နားကြပ်။"
+      },
+      "variants": [
+        {
+          "id": "black",
+          "color": "Black",
+          "image": "assets/products/MB-009.jpg?v=9d5fbdbfebdf"
+        }
+      ]
+    },
+    {
+      "id": "MB-010",
+      "name": {
+        "en": "Bookshelf",
+        "zh": "书架",
+        "mm": "စာအုပ်စင်"
+      },
+      "description": {
+        "en": "Wooden bookshelf for home.",
+        "zh": "家用木制书架。",
+        "mm": "အိမ်သုံး သစ်သားစာအုပ်စင်။"
+      },
+      "variants": [
+        {
+          "id": "brown",
+          "color": "Brown",
+          "image": "assets/products/MB-010.jpg?v=2691fe8f9111"
+        }
+      ]
+    },
+    {
+      "id": "NH865",
+      "name": {
+        "en": "MC 175L(M) ချိုင်းထောက်",
+        "mm": "MC 175L(M) ချိုင်းထောက်"
+      },
+      "description": {
+        "en": ""
+      },
+      "variants": [
+        {
+          "id": "standard",
+          "color": "Standard",
+          "image": "assets/product-placeholder.svg"
+        }
+      ]
+    },
+    {
+      "id": "NH863",
+      "name": {
+        "en": "MC 175 (S) ချိုင်းထောက်",
+        "mm": "MC 175 (S) ချိုင်းထောက်"
+      },
+      "description": {
+        "en": ""
+      },
+      "variants": [
+        {
+          "id": "standard",
+          "color": "Standard",
+          "image": "assets/product-placeholder.svg"
+        }
+      ]
+    },
+    {
+      "id": "NH4978",
+      "name": {
+        "en": "Blood Glucose Monitoring System"
+      },
+      "description": {
+        "en": ""
+      },
+      "variants": [
+        {
+          "id": "standard",
+          "color": "Standard",
+          "image": "assets/product-placeholder.svg"
+        }
+      ]
+    },
+    {
+      "id": "NH871",
+      "name": {
+        "en": "MC 551 ဘိုထိုင်",
+        "mm": "MC 551 ဘိုထိုင်"
+      },
+      "description": {
+        "en": ""
+      },
+      "variants": [
+        {
+          "id": "standard",
+          "color": "Standard",
+          "image": "assets/product-placeholder.svg"
+        }
+      ]
+    },
+    {
+      "id": "NH861",
+      "name": {
+        "en": "ဘိုထိုင်အိုး",
+        "mm": "ဘိုထိုင်အိုး"
+      },
+      "description": {
+        "en": ""
+      },
+      "variants": [
+        {
+          "id": "standard",
+          "color": "Standard",
+          "image": "assets/product-placeholder.svg"
+        }
+      ]
+    },
+    {
+      "id": "NH3841",
+      "name": {
+        "en": "MC 120L Walker"
+      },
+      "description": {
+        "en": ""
+      },
+      "variants": [
+        {
+          "id": "standard",
+          "color": "Standard",
+          "image": "assets/product-placeholder.svg"
+        }
+      ]
+    },
+    {
+      "id": "NH3614",
+      "name": {
+        "en": "MC 125 တုတ်ကောက်",
+        "mm": "MC 125 တုတ်ကောက်"
+      },
+      "description": {
+        "en": ""
+      },
+      "variants": [
+        {
+          "id": "standard",
+          "color": "Standard",
+          "image": "assets/product-placeholder.svg"
+        }
+      ]
+    }
+  ],
+  "branches": [
+    {
+      "id": "branch-1",
+      "name": "Branch 1",
+      "source": "branch 1.json",
+      "inventory": [
+        {
+          "productId": "MB-001",
+          "variantId": "red",
+          "price": 250,
+          "stock": 12
+        },
+        {
+          "productId": "MB-001",
+          "variantId": "blue",
+          "price": 270,
+          "stock": 8
+        },
+        {
+          "productId": "MB-002",
+          "variantId": "black",
+          "price": 90,
+          "stock": 5
+        },
+        {
+          "productId": "MB-003",
+          "variantId": "silver",
+          "price": 1200,
+          "stock": 7
+        },
+        {
+          "productId": "MB-004",
+          "variantId": "white",
+          "price": 140,
+          "stock": 11
+        },
+        {
+          "productId": "MB-005",
+          "variantId": "white",
+          "price": 35,
+          "stock": 20
+        },
+        {
+          "productId": "MB-006",
+          "variantId": "green",
+          "price": 300,
+          "stock": 4
+        },
+        {
+          "productId": "MB-007",
+          "variantId": "brown",
+          "price": 180,
+          "stock": 9
+        },
+        {
+          "productId": "MB-008",
+          "variantId": "blue",
+          "price": 20,
+          "stock": 25
+        },
+        {
+          "productId": "MB-009",
+          "variantId": "black",
+          "price": 180,
+          "stock": 14
+        },
+        {
+          "productId": "MB-010",
+          "variantId": "brown",
+          "price": 130,
+          "stock": 6
+        }
+      ],
+      "hasInventory": true,
+      "contact": {
+        "address": "",
+        "phone": "",
+        "viberUrl": "",
+        "facebookUrl": "",
+        "mapUrl": "",
+        "hours": ""
+      }
+    },
+    {
+      "id": "branch-2",
+      "name": "Branch 2",
+      "source": "branch 2.json",
+      "inventory": [
+        {
+          "productId": "NH865",
+          "variantId": "standard",
+          "price": 57500,
+          "stock": 2
+        },
+        {
+          "productId": "NH863",
+          "variantId": "standard",
+          "price": 57500,
+          "stock": 2
+        },
+        {
+          "productId": "NH4978",
+          "variantId": "standard",
+          "price": 38000,
+          "stock": 1
+        },
+        {
+          "productId": "NH871",
+          "variantId": "standard",
+          "price": 257500,
+          "stock": 1
+        },
+        {
+          "productId": "NH861",
+          "variantId": "standard",
+          "price": 25000,
+          "stock": 1
+        },
+        {
+          "productId": "NH3841",
+          "variantId": "standard",
+          "price": 257500,
+          "stock": 1
+        }
+      ],
+      "hasInventory": true,
+      "contact": {
+        "address": "",
+        "phone": "",
+        "viberUrl": "",
+        "facebookUrl": "",
+        "mapUrl": "",
+        "hours": ""
+      }
+    },
+    {
+      "id": "branch-3",
+      "name": "Branch 3",
+      "source": "branch 3.json",
+      "inventory": [
+        {
+          "productId": "NH3614",
+          "variantId": "standard",
+          "price": 71500,
+          "stock": 3
+        }
+      ],
+      "hasInventory": true,
+      "contact": {
+        "address": "",
+        "phone": "",
+        "viberUrl": "",
+        "facebookUrl": "",
+        "mapUrl": "",
+        "hours": ""
+      }
+    },
+    {
+      "id": "branch-4",
+      "name": "Branch 4",
+      "source": "branch 4.json",
+      "inventory": [],
+      "hasInventory": false,
+      "contact": {
+        "address": "",
+        "phone": "",
+        "viberUrl": "",
+        "facebookUrl": "",
+        "mapUrl": "",
+        "hours": ""
+      }
+    },
+    {
+      "id": "branch-5",
+      "name": "Branch 5",
+      "source": "branch 5.json",
+      "inventory": [],
+      "hasInventory": false,
+      "contact": {
+        "address": "",
+        "phone": "",
+        "viberUrl": "",
+        "facebookUrl": "",
+        "mapUrl": "",
+        "hours": ""
+      }
+    }
+  ],
+  "about": {
+    "title": {
+      "en": "About Mandalay Bike",
+      "zh": "关于 Mandalay Bike",
+      "mm": "Mandalay Bike အကြောင်း"
+    },
+    "story": {
+      "en": "Explore our catalog, choose the items you like, and bring your buying list to your selected branch. Our team can help you find the right products when you visit.",
+      "zh": "浏览商品目录，把心仪商品加入购买清单，再到选定的分店出示给店员。欢迎到店了解商品详情。",
+      "mm": "ပစ္စည်းစာရင်းကြည့်ပြီး နှစ်သက်သောပစ္စည်းများကို ဝယ်မည့်စာရင်းထဲထည့်ပါ။ ရွေးထားသောဆိုင်ခွဲတွင် စာရင်းပြပြီး ပစ္စည်းများကို ကြည့်ရှုဝယ်ယူနိုင်ပါသည်။"
+    },
+    "phone": "",
+    "viberUrl": "",
+    "facebookUrl": ""
+  }
+}
