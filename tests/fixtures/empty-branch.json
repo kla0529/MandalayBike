@@ -1,0 +1,10 @@
+{
+  "headers": [
+    "Product Code",
+    "Product Name",
+    "Color / Variant",
+    "Price (Ks)",
+    "Stock"
+  ],
+  "rows": []
+}
