@@ -1,104 +1,88 @@
-# Mandalay Bike website
+# Mandalay Bike — website
 
-This project serves the website and builds its public catalog. Excel reading
-and Burmese conversion belong to the separate Mandalay Inventory Importer.
-Browse products by branch, name or code. There are no categories.
+Upload these contents to your GitHub repository root, including hidden .github.
+Keep Settings → Pages → Source set to GitHub Actions. Each commit/push to the
+default branch installs requirements, builds the catalog and publishes only dist.
+No manual GitHub build command is needed.
 
-## All branches use the same code
+## Updating an existing installation
 
-The builder automatically reads every branches/*.json file. Branch 3 needs
-no separate page or code. Keep one file per branch, for example branch 3.json.
-Every branch uses five fields: Product Code, Product Name, Color / Variant,
-Price (Ks), Stock. Existing six-field inventories with Category are still
-accepted; that unused column is ignored. Keep your edited inventory files.
+Back up your branch JSON, photos and contacts first. Replace the website code,
+workflow and requirements.txt with this version. Keep your own inventories and
+contacts rather than replacing them with the empty setup files in this ZIP.
+Branch 2 retains the six real AAG items supplied earlier, without invented categories.
+The other included branches are empty. No illustrative demo products remain.
+The logo and missing-photo asset are functional assets, not sample products.
 
-Stock 0 is hidden; stock above 0 is shown. Each JSON is a complete snapshot.
+Delete obsolete tests, templates, converter files, old product sample images,
+old dist/assets/products and dist/assets/bike.jpg from the website repository.
+Remove old nested duplicate project folders after preserving unique data.
+Uploads do not delete old files automatically. Keep the separate importer app
+on your computer, not in this website repository.
 
-## Local updates: build, then serve
+## Files and image naming
 
-Run this one command from this website project's folder. It builds the catalog
-and starts a preview that rebuilds inventory when you refresh:
+| Path | Purpose |
+|---|---|
+| branches/branch 1.json … branch 5.json | Public inventory, unchanged branch naming |
+| Products/branch1/ID.jpg | Branch 1 source photo, named by product ID |
+| Products/branch2/ID.png | Branch 2 source photo |
+| Products/branch3/, branch4/, branch5/ | Other branch source photos |
+| data/about.json | Your public contact details |
+| data/products.json | Optional descriptions and translations; starts empty |
+| scripts/build_catalog.py | Validate inventories and prepare public photos/catalog |
+| requirements.txt | Pillow and HEIC decoding dependencies |
+| dist/ | Website files and build output |
 
-```bash
-python3 scripts/build_catalog.py --serve
-```
+Examples: Products/branch1/NH865.jpg and Products/branch2/NH865.heic may show
+different photos for the same ID in different branches. Keep one image per ID
+per branch. Matching ID filename capitalization is ignored. Folder names are
+case-sensitive: Products and branch1 as shown. Empty .gitkeep files preserve
+the new folders in Git; remove them after adding photos if desired.
 
-Check the build's branch summary. Branch 3 should show a positive product and
-stock count if its input has available products. If it shows 0, check the
-importer's result and closing stock. If the build reports an error, correct it
-before expecting the website to update.
+Supported input formats: JPG/JPEG, PNG, WebP, AVIF, GIF, HEIC and HEIF.
+GitHub builds copy browser-compatible photos into dist/Products. HEIC/HEIF
+files are converted to JPEG automatically using the installed image libraries.
+Do not link raw HEIC files directly in the browser or commit generated dist/Products.
+Unsupported/broken HEIC files stop the build with an error. Missing product
+photos use the neutral placeholder. Source photo metadata can remain in original
+JPG/PNG files, so remove private location metadata before uploading those publicly.
 
-Open http://127.0.0.1:8000 and select Branch 3. Keep this Terminal running;
-after replacing a branch JSON, refresh the page. Stop any older preview server
-first if it already occupies port 8000. Control+C stops it.
+## Inventory and categories
 
-If you prefer an ordinary static server, run python3 scripts/build_catalog.py
-separately after each edit before refreshing. The automatic rebuild is available
-only with --serve.
-Confirm that you edited the same project's branches folder, not a different
-extracted copy or the importer's Downloads output.
+The new importer emits headers ID, Name, Category, Price, Stock. Categories
+come only from Category; GROUP is ignored. Missing/blank Category is allowed:
+the product appears under All categories without an invented classification.
+Category choices are generated from available products in the selected branch.
+Previous five/six-column importer JSON remains readable, preserving existing
+branch IDs and buying lists. Regenerate it when convenient to use the new schema.
 
-## Public GitHub site
+Replace the matching branch JSON, commit/push and wait for Actions to pass.
+Stock 0 is hidden. A later positive-stock snapshot restores the item. Never
+upload original company XLSX files, customer records or credentials here.
 
-Local changes do not update GitHub Pages. From your cloned repository:
+## Language and hero
 
-```bash
-git add "branches/branch 3.json"
-git commit -m "Update Branch 3 inventory"
-git push
-```
+Burmese is the default for visitors without a saved choice. The language menu
+shows Myanmar, UK and China flags. A chosen language is stored in that browser
+and retained on refresh, branch changes and future visits. Clearing browser
+data removes this preference; different devices do not share it.
 
-GitHub Actions automatically runs python3 scripts/build_catalog.py after a
-commit/push to the repository default branch; there is no manual GitHub build
-command to run. Wait for Actions → Update branch catalog and publish to pass. It rebuilds and
-publishes dist. An extracted ZIP is not a Git clone: in that case upload the
-changed JSON through GitHub's branches folder and commit in the browser.
-Keep Settings → Pages → Source set to GitHub Actions.
+The hero randomly selects a photo from the selected branch's available products
+and changes every six seconds without immediately repeating a photo. It hides
+the image area if there are no product photos, and stays still for visitors
+who request reduced motion. Brand slogans, decorative stars and the promotional
+banner have been removed.
 
-## Update this project version
+## Local preview (optional)
 
-Back up your real inventories, photos, contacts and descriptions. Replace
-scripts/build_catalog.py, dist/app.js, dist/index.html and dist/style.css.
-Update tests and the workflow if using Actions. Keep your own branches/*.json,
-especially edited Branch 3. Package inventories are examples, not copies of
-your latest local changes. Preserve custom data/about.json and data/products.json.
-
-Delete obsolete website files if present: scripts/import_company_reports.py,
-scripts/myanmar_text.py, tests/test_company_import.py, COMPANY-IMPORT.md and
-UPDATE-GITHUB.md. Remove old branch XLSX files after retaining their JSON
-replacements. Uploads do not remove obsolete files already in GitHub.
-An unused nested Mandalay-bike directory can be removed after backing up any
-unique changes. The website needs only scripts/build_catalog.py for building;
-no Excel reader or converter belongs in this project.
-
-## Daily workflow
-
-Use the separate importer app to select company reports, enter the same JSON
-filename for that branch, create/download the result and upload it. Automatic
-Zawgyi conversion and zero-stock exclusion happen in the importer. Keep it
-unchanged until its report/conversion rules need updates.
-
-## Photos and shared metadata
-
-Place code-named photos such as NH4978.jpg in dist/assets/products. Supported:
-JPG, JPEG, PNG, WebP, SVG. One file per code, shared by all branches. Missing
-photos use placeholders. Rebuild after changing photos.
-
-Optional descriptions/translations are in data/products.json. Old category
-properties are ignored. Contacts are in data/about.json. Use Unicode Burmese.
-
-## Buying lists
-
-Lists use localStorage in the customer's browser, separately per branch. Keep
-the same domain and branch IDs to retain lists across website updates. Clearing
-site data removes them; private browsing is temporary; devices do not sync.
-Lists are for showing shop staff, not online orders or stock reservations.
-
-## Checks
+Python 3.12+ is recommended for the pinned image packages:
 
 ```bash
-python3 -m unittest discover -s tests -v
-python3 scripts/build_catalog.py --check
+python3 -m pip install -r requirements.txt
+python3 scripts/build_catalog.py
+python3 -m http.server 8000 --directory dist
 ```
 
-Python 3 is the only build dependency.
+Open http://localhost:8000. Rebuild after each local inventory/photo update.
+The published website needs no Python runtime in the customer's browser.

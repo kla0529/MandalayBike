@@ -1,88 +1,10 @@
 {
   "headers": [
-    "Product Code",
-    "Product Name",
-    "Color / Variant",
-    "Price (Ks)",
+    "ID",
+    "Name",
+    "Category",
+    "Price",
     "Stock"
   ],
-  "rows": [
-    [
-      "MB-001",
-      "Mountain Bike X1",
-      "Red",
-      250,
-      12
-    ],
-    [
-      "MB-001",
-      "Mountain Bike X1",
-      "Blue",
-      270,
-      8
-    ],
-    [
-      "MB-002",
-      "Office Chair",
-      "Black",
-      90,
-      5
-    ],
-    [
-      "MB-003",
-      "Gaming Laptop",
-      "Silver",
-      1200,
-      7
-    ],
-    [
-      "MB-004",
-      "Air Fryer",
-      "White",
-      140,
-      11
-    ],
-    [
-      "MB-005",
-      "Football",
-      "White",
-      35,
-      20
-    ],
-    [
-      "MB-006",
-      "Camping Tent",
-      "Green",
-      300,
-      4
-    ],
-    [
-      "MB-007",
-      "Office Desk",
-      "Brown",
-      180,
-      9
-    ],
-    [
-      "MB-008",
-      "Plastic Chair",
-      "Blue",
-      20,
-      25
-    ],
-    [
-      "MB-009",
-      "Wireless Headphones",
-      "Black",
-      180,
-      14
-    ],
-    [
-      "MB-010",
-      "Bookshelf",
-      "Brown",
-      130,
-      6
-    ]
-  ]
+  "rows": []
 }
