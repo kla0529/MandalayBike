@@ -24,7 +24,7 @@ def text(value):
 def variant_id(color):
     return text(color).casefold()
 
-def read_inventory(path):
+def read_inventory(path,category_translations=None):
     """Read the same five-field JSON inventory format for every branch."""
     if path.suffix.lower() != '.json':
         raise InventoryError('Use a generated branch JSON file from the separate Mandalay Inventory Importer.')
@@ -35,6 +35,18 @@ def read_inventory(path):
     except (ValueError, UnicodeError) as exc:
         raise InventoryError('Cannot read imported inventory JSON.') from exc
     if not isinstance(imported,dict):raise InventoryError('Expected inventory JSON object.')
+    incoming=imported.get('categoryTranslations',{})
+    if not isinstance(incoming,dict):raise InventoryError('categoryTranslations must be an object.')
+    for category,labels in incoming.items():
+        if not isinstance(category,str) or len(category)>120 or not isinstance(labels,dict):
+            raise InventoryError('Invalid category translation entry.')
+        if any(lang not in ('mm','en','zh') or not isinstance(label,str) or not label.strip() or len(label)>120 for lang,label in labels.items()):
+            raise InventoryError('Category translations must use nonempty mm/en/zh text.')
+        if category_translations is not None:
+            existing=category_translations.setdefault(category,{})
+            for lang,label in labels.items():
+                if lang in existing and existing[lang]!=label:raise InventoryError(f'Conflicting {lang} translation for category {category}.')
+                existing[lang]=label
     headers=imported.get('headers')
     rows=imported.get('rows')
     layouts=[
@@ -138,7 +150,7 @@ def build_catalog(root):
     if not files: raise InventoryError('No branch .json files found in branches/.')
     generated=root/'dist/Products'
     if generated.exists():shutil.rmtree(generated)
-    branches=[]; used_ids=set(); warnings=[]
+    branches=[]; used_ids=set(); warnings=[]; category_translations={}
     about=json.loads((root/'data/about.json').read_text(encoding='utf-8'))
     for field in ['viberUrl','facebookUrl']:
         validate_url(about.get(field,''),field)
@@ -151,7 +163,7 @@ def build_catalog(root):
             if ident in used_ids: raise InventoryError('Another filename produces the same branch ID: '+ident)
             used_ids.add(ident); inventory=[]; seen=set()
             photos=branch_photos(root,ident)
-            for rownum,row in read_inventory(file):
+            for rownum,row in read_inventory(file,category_translations):
                 code,product_name,category,color=[text(v) for v in row[:4]]
                 if len(category)>120:raise InventoryError(f'Row {rownum}: Category exceeds 120 characters.')
                 if not re.fullmatch(r'[A-Z0-9][A-Z0-9._-]{0,39}',code):
@@ -175,7 +187,7 @@ def build_catalog(root):
             branches.append({'id':ident,'name':label,'source':file.name,'inventory':inventory,'hasInventory':bool(inventory),'contact':{k:contacts.get(k,'') for k in ['address','phone','viberUrl','facebookUrl','mapUrl','hours']}})
         except InventoryError as exc:
             raise InventoryError(f'{file.name}: {exc}') from exc
-    return {'schemaVersion':1,'currency':'MMK','products':list(products.values()),'branches':branches,'about':{k:v for k,v in about.items() if k!='branches'}},warnings
+    return {'schemaVersion':1,'currency':'MMK','categoryTranslations':category_translations,'products':list(products.values()),'branches':branches,'about':{k:v for k,v in about.items() if k!='branches'}},warnings
 
 def publish(root,catalog):
     dest=root/'dist/catalog.json'
