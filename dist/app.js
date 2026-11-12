@@ -240,18 +240,19 @@ function saveStore(key,value){try{localStorage.setItem(key,JSON.stringify(value)
 const escape=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const t=()=>copy[language];
 const localized=value=>typeof value==='string'?value:value?.[language]||value?.en||'';
-const categoryDefaults={"စက်ဘီးနှင့်ဆက်စပ်ပစ္စည်း": {"mm": "စက်ဘီးနှင့်ဆက်စပ်ပစ္စည်း", "en": "Bikes & accessories", "zh": "自行车与配件"}, "ပရိဘောဂ": {"mm": "ပရိဘောဂ", "en": "Furniture", "zh": "家具"}, "အီလက်ထရွန်းနစ်": {"mm": "အီလက်ထရွန်းနစ်", "en": "Electronics", "zh": "电子产品"}, "မီးဖိုချောင်သုံးပစ္စည်း": {"mm": "မီးဖိုချောင်သုံးပစ္စည်း", "en": "Kitchenware", "zh": "厨房用品"}, "အားကစားပစ္စည်း": {"mm": "အားကစားပစ္စည်း", "en": "Sports", "zh": "运动用品"}, "ပြင်ပအသုံးအဆောင်": {"mm": "ပြင်ပအသုံးအဆောင်", "en": "Outdoor", "zh": "户外用品"}, "ရုံးသုံးပစ္စည်း": {"mm": "ရုံးသုံးပစ္စည်း", "en": "Office supplies", "zh": "办公用品"}, "ပလတ်စတစ်ပစ္စည်း": {"mm": "ပလတ်စတစ်ပစ္စည်း", "en": "Plastic products", "zh": "塑料制品"}, "ကျန်းမာရေးပစ္စည်း": {"mm": "ကျန်းမာရေးပစ္စည်း", "en": "Healthcare", "zh": "医疗与护理用品"}, "အိမ်သုံးပစ္စည်း": {"mm": "အိမ်သုံးပစ္စည်း", "en": "Household goods", "zh": "家居用品"}, "No category": {"mm": "အမျိုးအစားမသတ်မှတ်ရသေး", "en": "No category", "zh": "未分类"}};
+const categoryDefaults={"စက်ဘီးနှင့်ဆက်စပ်ပစ္စည်း": {"mm": "စက်ဘီးနှင့်ဆက်စပ်ပစ္စည်း", "en": "Bikes & accessories", "zh": "自行车与配件"}, "ပရိဘောဂ": {"mm": "ပရိဘောဂ", "en": "Furniture", "zh": "家具"}, "အီလက်ထရွန်းနစ်": {"mm": "အီလက်ထရွန်းနစ်", "en": "Electronics", "zh": "电子产品"}, "မီးဖိုချောင်သုံးပစ္စည်း": {"mm": "မီးဖိုချောင်သုံးပစ္စည်း", "en": "Kitchenware", "zh": "厨房用品"}, "အားကစားပစ္စည်း": {"mm": "အားကစားပစ္စည်း", "en": "Sports", "zh": "运动用品"}, "ပြင်ပအသုံးအဆောင်": {"mm": "ပြင်ပအသုံးအဆောင်", "en": "Outdoor", "zh": "户外用品"}, "ရုံးသုံးပစ္စည်း": {"mm": "ရုံးသုံးပစ္စည်း", "en": "Office supplies", "zh": "办公用品"}, "ပလတ်စတစ်ပစ္စည်း": {"mm": "ပလတ်စတစ်ပစ္စည်း", "en": "Plastic products", "zh": "塑料制品"}, "ကျန်းမာရေးပစ္စည်း": {"mm": "ကျန်းမာရေးပစ္စည်း", "en": "Healthcare", "zh": "医疗与护理用品"}, "အိမ်သုံးပစ္စည်း": {"mm": "အိမ်သုံးပစ္စည်း", "en": "Household goods", "zh": "家居用品"}, "No category": {"mm": "အမျိုးအစားမသတ်မှတ်ရသေး", "en": "No category", "zh": "未分类"}, "သိုလှောင်ပစ္စည်းနှင့်စင်များ": {"mm": "သိုလှောင်ပစ္စည်းနှင့်စင်များ", "en": "Storage & shelving", "zh": "收纳与置物架"}, "အိမ်အလှဆင်ပစ္စည်း": {"mm": "အိမ်အလှဆင်ပစ္စည်း", "en": "Home décor", "zh": "家居装饰"}};
 const categoryAliases={"Bikes": "စက်ဘီးနှင့်ဆက်စပ်ပစ္စည်း", "Bikes & riding": "စက်ဘီးနှင့်ဆက်စပ်ပစ္စည်း", "Kitchen": "မီးဖိုချောင်သုံးပစ္စည်း", "Office": "ရုံးသုံးပစ္စည်း", "Plastic": "ပလတ်စတစ်ပစ္စည်း", "Household": "အိမ်သုံးပစ္စည်း", "Uncategorized": "No category"};
 
 const categoryKey=value=>String(value||'').normalize('NFKC').trim().toLowerCase();
 function categoryLabels(category){
  const supplied=catalog?.categoryTranslations||{};
- if(supplied[category])return supplied[category];
- if(categoryDefaults[category])return categoryDefaults[category];
- const alias=Object.keys(categoryAliases).find(key=>categoryKey(key)===categoryKey(category));
- if(alias)return categoryDefaults[categoryAliases[alias]];
- for(const labels of Object.values(categoryDefaults))if(Object.values(labels).some(value=>categoryKey(value)===categoryKey(category)))return labels;
- return {mm:category,en:category,zh:category};
+ const same=value=>categoryKey(value)===categoryKey(category);
+ const alias=Object.keys(categoryAliases).find(same);
+ const defaults=categoryDefaults[category]||categoryDefaults[categoryAliases[alias]]||Object.entries(categoryDefaults).find(([key,labels])=>same(key)||Object.values(labels).some(same))?.[1]||{};
+ const incoming=supplied[category]||Object.entries(supplied).find(([key,labels])=>same(key)||Object.values(labels).some(same))?.[1]||{};
+ const labels={mm:category,en:category,zh:category,...defaults};
+ for(const lang of ['mm','en','zh'])if(typeof incoming[lang]==='string'&&incoming[lang].trim())labels[lang]=incoming[lang];
+ return labels;
 }
 const categoryName=category=>categoryLabels(category)[language]||category;
 const categorySearch=category=>[category,...Object.values(categoryLabels(category))].join(' ');
